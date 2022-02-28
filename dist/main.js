@@ -16,7 +16,17 @@
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/slider */ \"./src/modules/slider.js\");\n\r\n\r\n(0,_modules_slider__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n\n//# sourceURL=webpack://mygiro/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/slider */ \"./src/modules/slider.js\");\n/* harmony import */ var _modules_scroll__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/scroll */ \"./src/modules/scroll.js\");\n\r\n\r\n\r\n(0,_modules_slider__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\r\n(0,_modules_scroll__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n\n//# sourceURL=webpack://mygiro/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/modules/scroll.js":
+/*!*******************************!*\
+  !*** ./src/modules/scroll.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst scroll = () => {\r\n    const scroll = document.querySelector('.smooth-scroll__img')\r\n\r\n    const heightScroll = () => {\r\n        let scrolled = window.pageYOffset;\r\n    \r\n        if (scrolled > 2) {\r\n            scroll.style.display = 'block'\r\n        }\r\n        if (!scrolled) {\r\n            scroll.style.display = 'none'\r\n        }\r\n    }\r\n\r\n    const scrollTo = () => {\r\n        if (window.pageYOffset > 0) {\r\n            window.scrollBy(0, -10);\r\n            setTimeout(scrollTo, 0);\r\n          }\r\n    }\r\n\r\n    document.addEventListener('DOMContentLoaded', () => {\r\n        if (window.pageYOffset < 400) {\r\n            window.addEventListener('scroll', heightScroll);\r\n        }\r\n    })\r\n    \r\n    scroll.addEventListener('click', scrollTo);\r\n\r\n}\r\n\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (scroll);\r\n\n\n//# sourceURL=webpack://mygiro/./src/modules/scroll.js?");
 
 /***/ }),
 
@@ -26,7 +36,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mod
   \*******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst sliderModule = () => {\r\n    const slider = 'slider'\r\n\r\n    console.log(slider);\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sliderModule);\r\n\n\n//# sourceURL=webpack://mygiro/./src/modules/slider.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n//slider_content - блок со слайдером\r\n//services_item - карточки слайдера\r\n//slider_block--active - класс активности\r\n\r\nconst slider = () => {\r\n    const sliderBlock = document.querySelector('#hero')\r\n    const slides = document.querySelectorAll('.services_item')\r\n\r\n    let currentSlide = 0\r\n\r\n    //стрелки\r\n    const prevSlide = (elems, index, strClass) => {\r\n        elems[index].classList.remove(strClass) \r\n    }\r\n    \r\n    const nextSlide = (elems, index, strClass) => {\r\n        elems[index].classList.add(strClass)\r\n    }\r\n    \r\n    //переключение слайдера по кнопкам\r\n    sliderBlock.addEventListener('click', (e) => {\r\n        e.preventDefault()\r\n       \r\n        if (!e.target.closest('.services__arrow')) {\r\n            return\r\n        }\r\n \r\n        prevSlide(slides, currentSlide, 'slider_block--active')\r\n        if (e.target.closest('#arrow-right')) {\r\n             currentSlide++\r\n        } else if (e.target.closest('#arrow-left')) {\r\n             currentSlide--\r\n        } \r\n\r\n        //преодоление предела\r\n        //slides.length - длина псевдомассива\r\n         if (currentSlide >= slides.length) {\r\n             currentSlide = 0\r\n         }\r\n \r\n         if (currentSlide < 0 ) {\r\n             currentSlide = slides.length - 1\r\n         }\r\n \r\n        nextSlide(slides, currentSlide, 'slider_block--active')\r\n    })\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (slider);\n\n//# sourceURL=webpack://mygiro/./src/modules/slider.js?");
 
 /***/ })
 
