@@ -126,10 +126,10 @@
     cursor: pointer;
 }
 .services__arrow--left {
-    background: url(/img/left-arrow.svg)
+    background: url(../img/left-arrow.svg)
 }
 .services__arrow--right {
-    background: url(/img/right-arrow.svg)
+    background: url(../img/right-arrow.svg)
 }
 /*about*/
 .about {
@@ -302,7 +302,7 @@
 }
 /*quote*/
 .quote {
-    background: url(/img/img/v880_1_1_.jpg) no-repeat center / cover;
+    background: url(../img/img/v880_1_1_.jpg) no-repeat center / cover;
     padding: 179px 0px;
 }
 .quote-block {
