@@ -29,6 +29,12 @@
     border-radius: 45px;
     border: 0px;
 }
+a.not-active {
+    display: none;
+}
+.spec-price {
+    font-size: 10px;
+}
 /*header*/
 .header {
     background-color: #E9E9E9;
